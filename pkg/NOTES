@@ -1,0 +1,54 @@
+
+For Slackware
+
+	./objc.SlackBuild
+
+For Solaris IPS (Image Package System for Solaris 11)
+	
+	pkgrepo create myrepo
+	pkgrepo add-publisher -s myrepo stes
+
+	then add directly using: pkg/build-ips-objc.sh
+	                    and: pkg/build-ips-objclibs.sh
+
+	this adds the software to the "myrepo" and also archives into .p5p
+
+	to load a downloaded archive instead of using build-ips-objc.sh :
+	pkgrecv -d myrepo -s *.p5p '*'
+
+For Solaris SVR4 package (older Solaris or 11 in legacy mode)
+
+	in this pkg directory based on pkginfo + prototype
+	DEV=`pwd`/SUNWobjc-3.3.8-i386  (leading / required)
+	mkdir $DEV
+	pkgmk -o -r / -d $DEV -f prototype
+
+	for the x86_64 package modify pkginfo
+
+	pkgsend generate SUNWobjc | pkgfmt >> objc.p5m
+	pkgdepend resolve -m objc.p5m
+	pkgsend publish -s /var/pkgrepo -d SUNWobjc objc.p5m.res
+	pkgrecv -s myrepo -d archive.p5p -a pkg://stes/developer/objc
+
+
+For FreeBSD 10 
+
+	pkg -d create -p freebsd10/pkg-plist -m freebsd10
+
+For Ubuntu
+	
+	mv debian ../
+	cd ..
+	date -R >> changelog
+	debuild -us -uc -b
+
+For RedHat
+
+	install rpm-build for build in $HOME/rpmbuild
+
+	cp objc.spec $HOME/rpmbuild/SPECS/objc.spec
+	cp libobjc.spec $HOME/rpmbuild/SPECS/libobjc.spec
+	cd $HOME
+	rpmbuild -bb rpmbuild/SPECS/objc.spec
+	rpmbuild -bb rpmbuild/SPECS/libobjc.spec
+
