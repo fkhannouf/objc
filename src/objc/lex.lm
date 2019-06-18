@@ -175,6 +175,10 @@ DBLSUFFIX ([fFlL]{1,3})
 "__typeof"		{ return gnukeyw(typeofop); }
 "__restrict"		{ return gnukeyw(typequal); }
 "__restrict__"		{ return gnukeyw(typequal); }
+"__attribute_deprecated__"		{ return gnukeyw(typequal); }
+"__fortify_function"		{ return gnukeyw(typequal); }
+"__nonnull"		{ return gnukeyw(typequal); }
+"__wur"		{ return gnukeyw(typequal); }
 "_Nullable"		{ return gnukeyw(typequal); }
 "_Nonnull"		{ return gnukeyw(typequal); }
 
