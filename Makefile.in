@@ -55,7 +55,7 @@ browse ::
 
 runtime ::
 	$(CD) src; $(CD) objcrt; $(MAKE) 
-	$(CD) src; $(CD) objcpak; $(MAKE) 
+	$(CD) src; $(CD) objpak; $(MAKE) 
 	$(CD) src; $(CD) objc; $(MAKE) runtime
 	$(CD) src; $(CD) cakit; $(MAKE) 
 
