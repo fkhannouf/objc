@@ -260,6 +260,8 @@ void setoptions(id aCltn)
       o_gnu++;
     } else if (!strcmp(t,"-darwin")) {
       o_darwin++;
+    } else if (!strcmp(t,"-amigaos")) {
+      o_darwin++;
     } else if (!strcmp(t,"-vms")) {
       o_vms++;
     } else if (!strcmp(t,"-hpux")) {
@@ -456,6 +458,15 @@ void setfirstlinetag(void)
     definebuiltinvar("introduced"); 
     definebuiltinvar("unavailable"); 
   }
+
+  //if (o_amigaos) {
+    definebuiltinvar("libcall"); 
+    definebuiltinvar("linearvarargs"); 
+    definebuiltinvar("baserel_restore__"); 
+    definebuiltinvar("used"); 
+    definebuiltinvar("unused"); 
+    definebuiltinvar("deprecated"); 
+  //}
 
   if (o_gnu) {
     definebuiltinfun("__builtin_bswap16");

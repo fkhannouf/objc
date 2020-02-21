@@ -35,6 +35,7 @@ int o_ppi;
 int o_watcom;
 int o_ibmvac;
 int o_msdos;
+int o_amigaos;
 int o_enableasm;
 int o_nolinetags;
 int o_buffered;
@@ -130,6 +131,7 @@ defoptions(void)
   o_comments = 0;
   o_duptypedefs = 0;
   o_msdos = 0;
+  o_amigaos = 0;
   o_gnu = 0;
   o_darwin = 0; /* Apple darwin17.7 keyword swift,ios,macosx */
   o_sunm64 = 0;

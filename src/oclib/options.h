@@ -32,6 +32,7 @@ extern int o_ppi;
 extern int o_watcom;
 extern int o_ibmvac;
 extern int o_msdos;
+extern int o_amigaos;
 extern int o_enableasm;
 extern int o_nolinetags;
 extern int o_buffered;
